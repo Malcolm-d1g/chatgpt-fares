@@ -25,6 +25,7 @@ export default function Home() {
       return [newmsg, ...prevMsgList];
     });
   };
+
   // This function is called when the user clicks on the send button or press enter key to send the message
   async function handlesubmit(event) {
     event.preventDefault();
@@ -43,6 +44,7 @@ export default function Home() {
           message: messages,
         }),
       });
+
       // This is the response from the GPT-3 model which is the chatbot also filtering the response to make it more readable
       //by removing unwanted characters and spliting the response into steps if the response is a list of steps and not a single message
 
