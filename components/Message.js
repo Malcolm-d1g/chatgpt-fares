@@ -6,6 +6,7 @@ import Image from "next/image";
 import Moment from "react-moment";
 
 export default function Home() {
+  // Using react hook (state) to initiate the conversation in chat box
   const [lastListedMsg, setLastListedMsg] = useState([]);
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([
@@ -18,21 +19,13 @@ export default function Home() {
   ]);
   const [expenses, setExpenses] = useState(chatLog);
 
-  const addNewExpense = (expense) => {
-    setExpenses((prevExpanses) => {
-      return [expense, ...prevExpanses];
+  // rerieving the message list and adding the new message to the list
+  const addNewMsg = (newmsg) => {
+    setExpenses((prevMsgList) => {
+      return [newmsg, ...prevMsgList];
     });
   };
-
-  // useEffect(() => {
-  //   getEngines();
-  // }, []);
-
-  // useEffect(() => {
-  //   setLastListedMsg(chatLog[chatLog.length - 2].message);
-  //   console.log("lastlist", lastListedMsg);
-  // }, [chatLog]);
-
+  // This function is called when the user clicks on the send button or press enter key to send the message
   async function handlesubmit(event) {
     event.preventDefault();
     if (input.length) {
@@ -40,8 +33,6 @@ export default function Home() {
       setChatLog(chatLogNew);
       await setInput("");
       const messages = chatLogNew.map((message) => message.message);
-      // .join("\n")
-      // .split(/(\d)/);
       console.log("messages===>", messages);
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -52,6 +43,8 @@ export default function Home() {
           message: messages,
         }),
       });
+      // This is the response from the GPT-3 model which is the chatbot also filtering the response to make it more readable
+      //by removing unwanted characters and spliting the response into steps if the response is a list of steps and not a single message
 
       const data = await response.json();
       await setChatLog([
@@ -76,19 +69,14 @@ export default function Home() {
     await setLastListedMsg(chatLog[chatLog.length - 1].message);
   }
 
-  //console.log("msgbdy", lastListedMsg);
+  // This function is called when the user clicks on the new chat button to clear the chat history
 
   function clearChat() {
     setChatLog([]);
   }
-  //create a function to retreive all chatgpt models
-  // function getEngines() {
-  //   fetch("/api/generate", {
-  //     method: "POST",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log("data =", data));
-  // }
+
+  //This component is used to render the main chat box container and the side menu
+  //also it is used to render the chat messages and the input field, and reneder the messages list decending order
 
   return (
     <div className="App">
@@ -113,7 +101,7 @@ export default function Home() {
                     <ChatMessage
                       key={index}
                       message={message}
-                      onAddExpense={addNewExpense}
+                      onAddExpense={addNewMsg}
                     />
                   ))
                   .reverse()}
@@ -144,10 +132,16 @@ export default function Home() {
     </div>
   );
 }
+
+//This component is used to render the chat messages and it checks if the message is a list of steps or a single message
+//if the message is a list of steps it will render the list of steps in a list format
+//if the message is a single message it will render the message in a paragraph format
+//also it checks if the message is from the user or from the chatbot to render the message in the right side of the chat box
+
 const ChatMessage = ({ message }) => {
   console.log("message inside component", message.message);
   if (typeof message.message === "object") {
-    console.log("all objects");
+    //console.log("all objects");
     return (
       <div className={`chatMessageCont ${message.user === "gpt" && "gptCont"}`}>
         <div className={`chatMessage ${message.user === "gpt" && "chatgpt"}`}>
@@ -172,7 +166,6 @@ const ChatMessage = ({ message }) => {
               )}
             </div>
             <div className="message">
-              {/* <Moment format="DD/MM/YYYY HH:mm">{new Date()}</Moment> */}
               {message.user === "gpt" ? (
                 <ul className="stepList">
                   {message.message.map((msg, index) => (
