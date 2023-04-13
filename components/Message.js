@@ -17,11 +17,11 @@ export default function Home() {
     Example type in How to apply for Public Health Pest Control?`,
     },
   ]);
-  const [expenses, setExpenses] = useState(chatLog);
+  const [newmsges, setNewmsges] = useState(chatLog);
 
   // rerieving the message list and adding the new message to the list
   const addNewMsg = (newmsg) => {
-    setExpenses((prevMsgList) => {
+    setNewmsges((prevMsgList) => {
       return [newmsg, ...prevMsgList];
     });
   };
