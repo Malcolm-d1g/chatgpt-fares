@@ -1,9 +1,8 @@
 import Head from "next/head";
-import React, { Component, useState, useEffect } from "react";
-import { render } from "react-dom";
+import React, { useState } from "react";
+
 import Typed from "react-typed";
 import Image from "next/image";
-import Moment from "react-moment";
 
 export default function Home() {
   // Using react hook (useState) to initiate the conversation in chat box
@@ -209,7 +208,6 @@ const ChatMessage = ({ message }) => {
               )}
             </div>
             <div className="message">
-              {/* <Moment format="DD/MM/YYYY HH:mm">{new Date()}</Moment> */}
               {message.user === "gpt" ? (
                 <p>
                   <Typed
