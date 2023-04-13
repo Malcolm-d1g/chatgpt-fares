@@ -6,7 +6,7 @@ import Image from "next/image";
 import Moment from "react-moment";
 
 export default function Home() {
-  // Using react hook (state) to initiate the conversation in chat box
+  // Using react hook (useState) to initiate the conversation in chat box
   const [lastListedMsg, setLastListedMsg] = useState([]);
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([
