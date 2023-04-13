@@ -1,0 +1,166 @@
+.App {
+  text-align: center;
+  display: flex;
+  background-color: #282c34;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.main .sidemenu {
+  width: 260px;
+  background-color: #202123;
+  padding: 40px;
+}
+.main .chatbox {
+  flex: 1 1;
+  background-color: #f1f1f1;
+  position: relative;
+}
+.main .side-menu-button {
+  padding: 12px;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: left;
+  transition: ease 0.25s all;
+}
+.main .side-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.main .side-menu-button span {
+  padding-left: 6px;
+  padding-right: 12px;
+}
+
+.main .chat-input-holder {
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.main .chat-input-textarea {
+  background-color: #40414f;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  margin: 12px;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  color: white;
+  font-size: 1.25em;
+}
+
+.main .chat-log {
+  text-align: left;
+}
+
+.main .chat-message.chatgpt {
+  background-color: #444654;
+}
+.main .chat-message-center {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.avatar span {
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid #787a95 !important;
+  margin: 5px !important;
+}
+
+.main .message {
+  padding: 12px;
+}
+
+.main .faresImage {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: #f0ece8;
+}
+.chatMessage.false {
+  max-width: 70%;
+  float: right;
+  color: black;
+}
+.chatMessage.chatgpt {
+  max-width: 70%;
+}
+.chatInputHolder {
+  border-top: 1px solid #b7b6b6;
+}
+.chatInputTextarea {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  color: black;
+  font-size: 15px;
+  border-radius: 10px;
+  flex: 15;
+}
+.gptCont .chatMessageCente {
+  flex-direction: row !important;
+  display: flex !important;
+}
+.gptCont .message {
+  padding: 12px;
+  background-color: #f1e7e7 !important;
+  border: 1px solid #aeaeae;
+  border-radius: 10px;
+}
+.chatMessage .message {
+  padding: 12px;
+  background: #e1e1e1;
+  color: #232323;
+  border-radius: 10px;
+}
+.chatMessageCont .chatMessageCente {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.chatBorder {
+  border: 2px solid #901a10;
+  border-radius: 15px;
+}
+.chatMainCont {
+  background: white;
+  padding: 15px;
+}
+
+form {
+  margin: 10px;
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 25%);
+  display: flex;
+  margin: 15px;
+}
+button.chatInputButton {
+  height: 44px;
+  width: 95px;
+  border: none;
+  background: #d2d2d2;
+  border-radius: 0 5px 5px 0;
+  flex: 1;
+}
+button.chatInputButton:hover {
+  background: #b7b6b6;
+}
+.avatar.false {
+  flex: 1;
+}
+ul.stepList {
+  list-style: none;
+}
