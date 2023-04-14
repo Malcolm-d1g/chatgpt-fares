@@ -1,4 +1,4 @@
-# OpenAI API Quickstart - Node.js example app
+# Chatgpt-Fares - Node.js example app
 
 This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
@@ -11,7 +11,7 @@ This is an example pet name generator app used in the OpenAI API [quickstart tut
 3. Navigate into the project directory
 
    ```bash
-   $ cd openai-quickstart-node
+   $ cd chatgpt-fares
    ```
 
 4. Install the requirements
